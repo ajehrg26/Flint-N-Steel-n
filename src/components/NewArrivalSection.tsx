@@ -5,13 +5,13 @@ import { ALL_PRODUCTS } from '../data/products';
 import { useShop } from '../context/ShopContext';
 
 export const NewArrivalSection: React.FC = () => {
-  const { navigateToCategory, products } = useShop();
+  const { navigateToCategory } = useShop();
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Filter new arrival products from dynamic products state
+  // Filter new arrival products
   const newArrivals = [
-    products.find((p) => p.id === 'daisy-shirt') || products[0],
-    products.find((p) => p.id === 'rei-blue-jacket') || products[1],
+    ALL_PRODUCTS.find((p) => p.id === 'daisy-shirt') || ALL_PRODUCTS[0],
+    ALL_PRODUCTS.find((p) => p.id === 'rei-blue-jacket') || ALL_PRODUCTS[1],
   ];
 
   const scrollCarousel = (direction: 'left' | 'right') => {

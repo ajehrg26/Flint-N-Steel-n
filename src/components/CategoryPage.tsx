@@ -12,7 +12,6 @@ export const CategoryPage: React.FC = () => {
     setFilterState,
     resetFilters,
     formatPrice,
-    products,
   } = useShop();
 
   const categoryTitles: Record<string, { title: string; subtitle: string }> = {
@@ -53,7 +52,7 @@ export const CategoryPage: React.FC = () => {
 
   // Filter & sort logic
   const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
+    return ALL_PRODUCTS.filter((product) => {
       // Category match
       if (selectedCategory !== 'all') {
         if (selectedCategory === 'new-arrivals' && !product.isNewArrival) return false;

@@ -13,22 +13,17 @@ import {
   Ruler,
   MessageSquare,
   ChevronDown,
-  Camera,
-  Image as ImageIcon,
-  Plus,
-  FolderOpen,
 } from 'lucide-react';
 import { Product, ProductColor } from '../types';
 import { useShop } from '../context/ShopContext';
 import { ALL_PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
-import { ReplaceImageModal } from './ReplaceImageModal';
 
 interface ProductDetailPageProps {
   product: Product;
 }
 
-export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: initialProduct }) => {
+export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
   const {
     addToCart,
     toggleWishlist,
@@ -37,17 +32,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
     setActivePage,
     setIsCheckoutOpen,
     showToast,
-    products,
-    updateProductImage,
-    resetProductImages,
-    openMediaFolder,
   } = useShop();
 
-  // Retrieve reactive product version from products state
-  const product = products.find((p) => p.id === initialProduct.id) || initialProduct;
-
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [isReplaceModalOpen, setIsReplaceModalOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || 'M');
   const [selectedColor, setSelectedColor] = useState<ProductColor>(
     product.colors[0] || { name: 'Standard', hex: '#000000' }
@@ -147,7 +134,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
                 key={idx}
                 id={`product-thumb-${idx}`}
                 onClick={() => setSelectedImageIndex(idx)}
-                className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all duration-200 focus:outline-none group ${
+                className={`relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all duration-200 focus:outline-none ${
                   selectedImageIndex === idx
                     ? 'border-black shadow-md scale-95'
                     : 'border-transparent opacity-60 hover:opacity-100'
@@ -161,26 +148,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
                 />
               </button>
             ))}
-
-            {/* Replace / Add Photo action button in thumbnail column */}
-            <button
-              id="pdp-add-replace-thumb-btn"
-              onClick={() => setIsReplaceModalOpen(true)}
-              className="w-16 h-20 sm:w-20 sm:h-24 rounded-xl border-2 border-dashed border-neutral-300 hover:border-black flex flex-col items-center justify-center text-neutral-500 hover:text-black flex-shrink-0 transition-colors bg-neutral-50/50 group focus:outline-none"
-              title="Replace or add custom product picture"
-            >
-              <Camera className="w-5 h-5 mb-1 group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-bold uppercase tracking-wider text-center leading-tight">
-                Replace Photo
-              </span>
-            </button>
           </div>
 
           {/* Large Hero Image */}
           <div className="relative flex-1 aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden bg-neutral-100 shadow-sm border border-neutral-100 group">
             <img
               id="main-product-image"
-              src={gallery[selectedImageIndex] || product.image}
+              src={gallery[selectedImageIndex]}
               alt={product.name}
               className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               referrerPolicy="no-referrer"
@@ -192,29 +166,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
                 {product.badge}
               </span>
             )}
-
-            {/* Interactive Photo Controls on the image */}
-            <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2">
-              <button
-                id="pdp-replace-picture-btn"
-                onClick={() => setIsReplaceModalOpen(true)}
-                className="bg-white/90 hover:bg-white backdrop-blur-md text-black text-xs font-bold px-3.5 py-2 rounded-full shadow-lg border border-neutral-200/60 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 focus:outline-none"
-                title="Replace or upload custom picture for this item"
-              >
-                <Camera className="w-3.5 h-3.5 text-black" />
-                <span>Replace Picture</span>
-              </button>
-
-              <button
-                id="pdp-open-folder-btn"
-                onClick={() => openMediaFolder(product.id)}
-                className="bg-neutral-900/90 hover:bg-black backdrop-blur-md text-white text-xs font-bold px-3.5 py-2 rounded-full shadow-lg border border-neutral-700/60 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 focus:outline-none"
-                title="Open 4-Picture Media Folder & All Specifications"
-              >
-                <FolderOpen className="w-3.5 h-3.5 text-amber-400" />
-                <span>4-Photo Folder & Specs</span>
-              </button>
-            </div>
 
             {/* Share & Wishlist quick actions */}
             <div className="absolute top-4 right-4 z-10 flex flex-col space-y-2">
@@ -741,20 +692,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
           </div>
         </div>
       )}
-
-      {/* Replace Image Modal */}
-      <ReplaceImageModal
-        isOpen={isReplaceModalOpen}
-        onClose={() => setIsReplaceModalOpen(false)}
-        product={product}
-        currentImageIndex={selectedImageIndex}
-        onApplyImage={(newUrl, target) => {
-          updateProductImage(product.id, newUrl, target, selectedImageIndex);
-        }}
-        onResetImages={() => {
-          resetProductImages(product.id);
-        }}
-      />
     </div>
   );
 };

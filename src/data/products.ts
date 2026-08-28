@@ -13,12 +13,12 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 129,
     reviewsText: '(129 Reviews)',
-    image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=1000&auto=format&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'The Daisy Shirt combines relaxed everyday tailoring with subtle organic texture. Cut from lightweight breathable organic cotton poplin, it features drop shoulders, a crisp camp collar, and mother-of-pearl finish buttons. Perfect for effortless layering or a standalone statement.',
@@ -78,7 +78,6 @@ export const ALL_PRODUCTS: Product[] = [
       'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Engineered for city transit and transitional seasons, the Rei Blue Jacket is built from weather-repellent recycled nylon ripstop. Features a dual-slider matte waterproof zipper, cinched storm hood, and zippered ergonomic kangaroo pockets.',
@@ -128,7 +127,6 @@ export const ALL_PRODUCTS: Product[] = [
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'A sharp modern silhouette made for effortless confidence. The Rozz Jacket features high-stance notch lapels, structured shoulder padding, and an elevated cropped hemline designed to pair seamlessly with high-rise denim or pleated trousers.',
@@ -175,12 +173,12 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 3000,
     reviewsText: '(3k Reviews)',
+    // Fashion model wearing a beige/brown jacket with glasses
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'An iconic LOCO hero piece. The Molly Jacket blends vintage collegiate styling with buttery-soft faux suede and brushed tan canvas. Finished with custom tortoiseshell buttons, deep welt utility pockets, and ribbed cuffs.',
@@ -225,12 +223,12 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 2000,
     reviewsText: '(2k Reviews)',
+    // Fashion model wearing bright neon green jacket and colorful bucket hat
     image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'High voltage energy crafted for bold souls. The PopStar Neon Jacket is rendered in high-visibility fluorescent chartreuse with tactile 3D patch pockets, an oversized storm collar, and a complementary neon drawcord system.',
@@ -275,12 +273,12 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 3000,
     reviewsText: '(3k Reviews)',
+    // Fashion model wearing a white half-zip sweatshirt
     image: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'The definitive comfort essential. Crafted with 450GSM heavyweight brushed French terry cotton in luminous off-white. Boasts a solid brass half-zip, a clean stand-up collar, and custom tonal LOCO embroidery on the left wrist.',
@@ -325,12 +323,12 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 5000,
     reviewsText: '(5k Reviews)',
+    // Fashion model wearing a dark/black oversized sweatshirt
     image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Our quintessential dark wardrobe foundation. Garment pigment-dyed for a lived-in washed black patina that gets better with every cycle. Deep drop shoulders, thick 1.5-inch collar ribbing, and pre-shrunk heavyweight cotton fleece.',
@@ -381,8 +379,6 @@ export const ALL_PRODUCTS: Product[] = [
     gallery: [
       'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'As featured on our hero campaign. High saturated canary yellow canvas shell with contrast black hardware and oversized industrial zippers. Designed for standout everyday presence.',
@@ -417,8 +413,6 @@ export const ALL_PRODUCTS: Product[] = [
     gallery: [
       'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Engineered with 6 pleated volumetric cargo pockets and an adjustable ankle snap taper system. Made from ripstop stretch twill that resists abrasions and wrinkles.',
@@ -451,8 +445,6 @@ export const ALL_PRODUCTS: Product[] = [
     gallery: [
       'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Fun, vibrant, and ultra-insulating. Cloud-soft recycled thermal fill keeps young explorers cozy during chilly adventures with reflective trims for night visibility.',
@@ -484,9 +476,6 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Play-proof fleece hoodie with double-layer hood, front pouch pocket, and durable embroidered Loco chest insignia.',
@@ -518,8 +507,6 @@ export const ALL_PRODUCTS: Product[] = [
     gallery: [
       'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Fluid motion and effortless elegance. Woven from 100% Normandy flax linen with deep knife pleats and an elasticated hidden back waistband for all-day comfort.',
@@ -550,9 +537,6 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop',
     gallery: [
       'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'Shuttle-loomed 13.5oz red-line selvedge denim in deep indigo. Stiff initially, it shapes organically to your body lines creating unique personal fades.',

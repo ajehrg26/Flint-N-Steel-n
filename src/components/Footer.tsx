@@ -3,7 +3,7 @@ import { ArrowRight, Instagram, Twitter, Youtube, Music, Sparkles } from 'lucide
 import { useShop } from '../context/ShopContext';
 
 export const Footer: React.FC = () => {
-  const { navigateToCategory, showToast, openMediaFolder } = useShop();
+  const { navigateToCategory, showToast } = useShop();
   const [newsletterEmail, setNewsletterEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -106,15 +106,6 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors"
                 >
                   Best Sellers (3k+ Reviews)
-                </button>
-              </li>
-              <li>
-                <button
-                  id="footer-open-media-folders-btn"
-                  onClick={() => openMediaFolder()}
-                  className="text-amber-400 hover:text-amber-300 transition-colors font-medium flex items-center gap-1.5"
-                >
-                  <span>📁 Product Media Folders (4P Assets)</span>
                 </button>
               </li>
             </ul>

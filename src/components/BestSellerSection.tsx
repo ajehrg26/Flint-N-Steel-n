@@ -5,13 +5,13 @@ import { ALL_PRODUCTS } from '../data/products';
 import { useShop } from '../context/ShopContext';
 
 export const BestSellerSection: React.FC = () => {
-  const { navigateToCategory, products } = useShop();
+  const { navigateToCategory } = useShop();
 
   // 3 Best Seller products for magazine split grid
   const bestSellers = [
-    products.find((p) => p.id === 'molly-jacket') || products[3],
-    products.find((p) => p.id === 'popstar-neon-jacket') || products[4],
-    products.find((p) => p.id === 'gaby-half-zipped') || products[5],
+    ALL_PRODUCTS.find((p) => p.id === 'molly-jacket') || ALL_PRODUCTS[3],
+    ALL_PRODUCTS.find((p) => p.id === 'popstar-neon-jacket') || ALL_PRODUCTS[4],
+    ALL_PRODUCTS.find((p) => p.id === 'gaby-half-zipped') || ALL_PRODUCTS[5],
   ];
 
   return (

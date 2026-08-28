@@ -13,16 +13,6 @@ interface ShopContextType {
   quickViewProduct: Product | null;
   setQuickViewProduct: (product: Product | null) => void;
 
-  // Products catalog with dynamic image replacement
-  products: Product[];
-  updateProductImage: (
-    productId: string,
-    newImageUrl: string,
-    targetSlot: 'current' | 'primary' | 'add',
-    galleryIndex?: number
-  ) => void;
-  resetProductImages: (productId?: string) => void;
-
   // Cart
   cart: CartItem[];
   addToCart: (product: Product, size?: string, color?: ProductColor, quantity?: number) => void;
@@ -49,13 +39,6 @@ interface ShopContextType {
   recentSearches: string[];
   addRecentSearch: (query: string) => void;
   clearRecentSearches: () => void;
-
-  // Media Folder & Product Dossier
-  isMediaFolderOpen: boolean;
-  setIsMediaFolderOpen: (open: boolean) => void;
-  mediaFolderProductId: string | null;
-  setMediaFolderProductId: (id: string | null) => void;
-  openMediaFolder: (productId?: string) => void;
 
   // Checkout modal
   isCheckoutOpen: boolean;
@@ -126,105 +109,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [currentLanguage, setCurrentLanguage] = useState<string>('EN');
   const [currentCurrency, setCurrentCurrency] = useState(CURRENCIES[0]);
 
-  // Products Catalog with dynamic override support
-  const [products, setProducts] = useState<Product[]>(() => {
-    try {
-      const saved = localStorage.getItem('loco_products_override');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        // Merge with current ALL_PRODUCTS to keep newest data structure
-        return ALL_PRODUCTS.map((prod) => {
-          const custom = parsed.find((p: Product) => p.id === prod.id);
-          return custom ? { ...prod, ...custom } : prod;
-        });
-      }
-    } catch {
-      // ignore
-    }
-    return ALL_PRODUCTS;
-  });
-
-  // Save customized product images
-  useEffect(() => {
-    try {
-      localStorage.setItem('loco_products_override', JSON.stringify(products));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [products]);
-
-  const updateProductImage = (
-    productId: string,
-    newImageUrl: string,
-    targetSlot: 'current' | 'primary' | 'add' = 'current',
-    galleryIndex: number = 0
-  ) => {
-    setProducts((prev) =>
-      prev.map((prod) => {
-        if (prod.id !== productId) return prod;
-
-        let updatedGallery = [...prod.gallery];
-        let updatedImage = prod.image;
-
-        if (targetSlot === 'primary') {
-          updatedImage = newImageUrl;
-          if (updatedGallery.length > 0) {
-            updatedGallery[0] = newImageUrl;
-          } else {
-            updatedGallery = [newImageUrl];
-          }
-        } else if (targetSlot === 'current') {
-          if (galleryIndex >= 0 && galleryIndex < updatedGallery.length) {
-            updatedGallery[galleryIndex] = newImageUrl;
-          } else {
-            updatedGallery.push(newImageUrl);
-          }
-          if (galleryIndex === 0) {
-            updatedImage = newImageUrl;
-          }
-        } else if (targetSlot === 'add') {
-          updatedGallery.push(newImageUrl);
-        }
-
-        const updatedProduct: Product = {
-          ...prod,
-          image: updatedImage,
-          gallery: updatedGallery,
-        };
-
-        // Also update selectedProduct if currently viewing it
-        if (selectedProduct && selectedProduct.id === productId) {
-          setSelectedProduct(updatedProduct);
-        }
-        if (quickViewProduct && quickViewProduct.id === productId) {
-          setQuickViewProduct(updatedProduct);
-        }
-
-        return updatedProduct;
-      })
-    );
-
-    showToast('Picture Updated', 'New product image has been applied.', 'success');
-  };
-
-  const resetProductImages = (productId?: string) => {
-    if (productId) {
-      const defaultProd = ALL_PRODUCTS.find((p) => p.id === productId);
-      if (defaultProd) {
-        setProducts((prev) =>
-          prev.map((p) => (p.id === productId ? { ...p, image: defaultProd.image, gallery: defaultProd.gallery } : p))
-        );
-        if (selectedProduct && selectedProduct.id === productId) {
-          setSelectedProduct(defaultProd);
-        }
-      }
-    } else {
-      setProducts(ALL_PRODUCTS);
-      localStorage.removeItem('loco_products_override');
-    }
-    showToast('Restored Default', 'Original picture has been restored.', 'info');
-  };
-
   // Cart State with localStorage
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
@@ -244,21 +128,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return [];
     }
   });
-
-  // Media Folder & Product Dossier
-  const [isMediaFolderOpen, setIsMediaFolderOpen] = useState(false);
-  const [mediaFolderProductId, setMediaFolderProductId] = useState<string | null>(null);
-
-  const openMediaFolder = (productId?: string) => {
-    if (productId) {
-      setMediaFolderProductId(productId);
-    } else if (selectedProduct) {
-      setMediaFolderProductId(selectedProduct.id);
-    } else if (products.length > 0) {
-      setMediaFolderProductId(products[0].id);
-    }
-    setIsMediaFolderOpen(true);
-  };
 
   // Recent Searches
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -453,9 +322,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSelectedProduct,
         quickViewProduct,
         setQuickViewProduct,
-        products,
-        updateProductImage,
-        resetProductImages,
         cart,
         addToCart,
         removeFromCart,
@@ -477,11 +343,6 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         recentSearches,
         addRecentSearch,
         clearRecentSearches,
-        isMediaFolderOpen,
-        setIsMediaFolderOpen,
-        mediaFolderProductId,
-        setMediaFolderProductId,
-        openMediaFolder,
         isCheckoutOpen,
         setIsCheckoutOpen,
         toasts,
