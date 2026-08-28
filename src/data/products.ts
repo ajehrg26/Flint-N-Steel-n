@@ -13,7 +13,7 @@ export const ALL_PRODUCTS: Product[] = [
     rating: 5.0,
     reviewsCount: 129,
     reviewsText: '(129 Reviews)',
-    image: 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://drive.google.com/file/d/1t92_E5LlBXynJ3wTNMiw3dc6_bhCLQoq/view?usp=drivesdk',
     gallery: [
       'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1000&auto=format&fit=crop',
