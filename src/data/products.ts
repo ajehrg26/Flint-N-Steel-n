@@ -174,11 +174,11 @@ export const ALL_PRODUCTS: Product[] = [
     reviewsCount: 3000,
     reviewsText: '(3k Reviews)',
     // Fashion model wearing a beige/brown jacket with glasses
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/d/1MwSm6Ie9cMaW9gSZV9C7y68uqvoSYveF',
     gallery: [
+      'https://lh3.googleusercontent.com/d/1MwSm6Ie9cMaW9gSZV9C7y68uqvoSYveF',
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop',
     ],
     description:
       'An iconic LOCO hero piece. The Molly Jacket blends vintage collegiate styling with buttery-soft faux suede and brushed tan canvas. Finished with custom tortoiseshell buttons, deep welt utility pockets, and ribbed cuffs.',
