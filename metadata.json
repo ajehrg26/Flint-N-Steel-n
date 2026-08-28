@@ -1,0 +1,6 @@
+{
+  "name": "LOCO Fashion",
+  "description": "A premium, editorial fashion e-commerce storefront featuring curated seasonal collections, dynamic cart, wishlist, visual search, and seamless product exploration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
