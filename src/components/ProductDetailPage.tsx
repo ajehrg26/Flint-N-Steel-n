@@ -16,6 +16,7 @@ import {
   Camera,
   Image as ImageIcon,
   Plus,
+  FolderOpen,
 } from 'lucide-react';
 import { Product, ProductColor } from '../types';
 import { useShop } from '../context/ShopContext';
@@ -39,6 +40,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
     products,
     updateProductImage,
     resetProductImages,
+    openMediaFolder,
   } = useShop();
 
   // Retrieve reactive product version from products state
@@ -191,16 +193,28 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product: i
               </span>
             )}
 
-            {/* Interactive Replace Picture Button on the image */}
-            <button
-              id="pdp-replace-picture-btn"
-              onClick={() => setIsReplaceModalOpen(true)}
-              className="absolute bottom-4 left-4 z-10 bg-white/90 hover:bg-white backdrop-blur-md text-black text-xs font-bold px-3.5 py-2 rounded-full shadow-lg border border-neutral-200/60 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 focus:outline-none"
-              title="Replace or upload custom picture for this item"
-            >
-              <Camera className="w-3.5 h-3.5 text-black" />
-              <span>Replace Picture</span>
-            </button>
+            {/* Interactive Photo Controls on the image */}
+            <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2">
+              <button
+                id="pdp-replace-picture-btn"
+                onClick={() => setIsReplaceModalOpen(true)}
+                className="bg-white/90 hover:bg-white backdrop-blur-md text-black text-xs font-bold px-3.5 py-2 rounded-full shadow-lg border border-neutral-200/60 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 focus:outline-none"
+                title="Replace or upload custom picture for this item"
+              >
+                <Camera className="w-3.5 h-3.5 text-black" />
+                <span>Replace Picture</span>
+              </button>
+
+              <button
+                id="pdp-open-folder-btn"
+                onClick={() => openMediaFolder(product.id)}
+                className="bg-neutral-900/90 hover:bg-black backdrop-blur-md text-white text-xs font-bold px-3.5 py-2 rounded-full shadow-lg border border-neutral-700/60 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 focus:outline-none"
+                title="Open 4-Picture Media Folder & All Specifications"
+              >
+                <FolderOpen className="w-3.5 h-3.5 text-amber-400" />
+                <span>4-Photo Folder & Specs</span>
+              </button>
+            </div>
 
             {/* Share & Wishlist quick actions */}
             <div className="absolute top-4 right-4 z-10 flex flex-col space-y-2">

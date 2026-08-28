@@ -50,6 +50,13 @@ interface ShopContextType {
   addRecentSearch: (query: string) => void;
   clearRecentSearches: () => void;
 
+  // Media Folder & Product Dossier
+  isMediaFolderOpen: boolean;
+  setIsMediaFolderOpen: (open: boolean) => void;
+  mediaFolderProductId: string | null;
+  setMediaFolderProductId: (id: string | null) => void;
+  openMediaFolder: (productId?: string) => void;
+
   // Checkout modal
   isCheckoutOpen: boolean;
   setIsCheckoutOpen: (open: boolean) => void;
@@ -237,6 +244,21 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return [];
     }
   });
+
+  // Media Folder & Product Dossier
+  const [isMediaFolderOpen, setIsMediaFolderOpen] = useState(false);
+  const [mediaFolderProductId, setMediaFolderProductId] = useState<string | null>(null);
+
+  const openMediaFolder = (productId?: string) => {
+    if (productId) {
+      setMediaFolderProductId(productId);
+    } else if (selectedProduct) {
+      setMediaFolderProductId(selectedProduct.id);
+    } else if (products.length > 0) {
+      setMediaFolderProductId(products[0].id);
+    }
+    setIsMediaFolderOpen(true);
+  };
 
   // Recent Searches
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -455,6 +477,11 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
         recentSearches,
         addRecentSearch,
         clearRecentSearches,
+        isMediaFolderOpen,
+        setIsMediaFolderOpen,
+        mediaFolderProductId,
+        setMediaFolderProductId,
+        openMediaFolder,
         isCheckoutOpen,
         setIsCheckoutOpen,
         toasts,

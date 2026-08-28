@@ -17,6 +17,7 @@ import { WishlistDrawer } from './components/WishlistDrawer';
 import { SearchModal } from './components/SearchModal';
 import { QuickViewModal } from './components/QuickViewModal';
 import { CheckoutModal } from './components/CheckoutModal';
+import { ProductMediaFolderModal } from './components/ProductMediaFolderModal';
 import { ToastContainer } from './components/ToastContainer';
 import { Footer } from './components/Footer';
 
@@ -66,6 +67,7 @@ const AppContent: React.FC = () => {
       <SearchModal />
       <QuickViewModal />
       <CheckoutModal />
+      <ProductMediaFolderModal />
       <ToastContainer />
     </div>
   );

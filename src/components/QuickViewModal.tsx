@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Star, ShoppingBag, Heart, ArrowRight } from 'lucide-react';
+import { X, Star, ShoppingBag, Heart, ArrowRight, FolderOpen } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 export const QuickViewModal: React.FC = () => {
@@ -11,6 +11,8 @@ export const QuickViewModal: React.FC = () => {
     isInWishlist,
     formatPrice,
     navigateToProduct,
+    openMediaFolder,
+    products,
   } = useShop();
 
   const [selectedSize, setSelectedSize] = useState('M');
@@ -18,13 +20,16 @@ export const QuickViewModal: React.FC = () => {
 
   if (!quickViewProduct) return null;
 
-  const isFavorited = isInWishlist(quickViewProduct.id);
+  // Grab active reactive product version if available
+  const product = products.find((p) => p.id === quickViewProduct.id) || quickViewProduct;
+
+  const isFavorited = isInWishlist(product.id);
 
   const handleAdd = () => {
     addToCart(
-      quickViewProduct,
+      product,
       selectedSize,
-      quickViewProduct.colors[selectedColorIndex]
+      product.colors[selectedColorIndex]
     );
     setQuickViewProduct(null);
   };
@@ -114,15 +119,28 @@ export const QuickViewModal: React.FC = () => {
                 <span>Add to Shopping Bag</span>
               </button>
 
-              <button
-                onClick={() => {
-                  navigateToProduct(quickViewProduct);
-                  setQuickViewProduct(null);
-                }}
-                className="w-full text-center text-xs font-semibold text-neutral-600 hover:text-black py-1.5 underline"
-              >
-                View Full Product Specs & Reviews &rarr;
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    navigateToProduct(product);
+                    setQuickViewProduct(null);
+                  }}
+                  className="flex-1 text-center text-xs font-semibold text-neutral-600 hover:text-black py-1.5 underline"
+                >
+                  View Details &rarr;
+                </button>
+
+                <button
+                  onClick={() => {
+                    openMediaFolder(product.id);
+                    setQuickViewProduct(null);
+                  }}
+                  className="flex items-center gap-1 text-xs font-bold bg-neutral-100 hover:bg-neutral-200 text-neutral-800 px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  <FolderOpen className="w-3.5 h-3.5 text-amber-500" />
+                  <span>4P Folder</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
